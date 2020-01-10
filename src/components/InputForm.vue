@@ -26,7 +26,10 @@ export default {
     },
     methods: {
         addTodo() {
-            this.todoArray.push(this.newTodo);
+            let todo = this.newTodo.trim();
+            if (todo) {
+                this.todoArray.push(todo);
+            }
             this.newTodo = '';
         },
         deleteElem(keyOf) {
@@ -34,7 +37,7 @@ export default {
         }
     },
     computed: {
-
+        
     },
 }
 </script>

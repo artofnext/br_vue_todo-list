@@ -5,7 +5,7 @@
         
             <button v-on:click.prevent="addTodo" class="button">Add</button>
         </form>
-        <todo-list :todoArray="todoArray" />
+        <todo-list :todoArray="todoArray" v-on:change="deleteElem(keyOfArray)"/>
     </div>
 </template>
 
@@ -21,12 +21,16 @@ export default {
         return {
             todoArray: [],
             newTodo: null,
+            keyOfArray: null,
         }
     },
     methods: {
         addTodo() {
             this.todoArray.push(this.newTodo);
             this.newTodo = '';
+        },
+        deleteElem(keyOf) {
+            this.todoArray.splice(keyOf, 1);
         }
     },
     computed: {

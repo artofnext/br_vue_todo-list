@@ -17,7 +17,9 @@ export default {
 
     methods: {
         deleteItem (ind) {
-            this.todoArray.splice(ind, 1);
+            // this.todoArray.splice(ind, 1);
+            this.$emit("change", ind);
+
         }
     },
 }

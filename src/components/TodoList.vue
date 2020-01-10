@@ -5,6 +5,7 @@
                 <p>{{ index + 1 }} - {{ value }}<button v-on:click="deleteItem(index)">x</button></p>
             </li>
         </ul>
+        <p>All Todo: {{ allTodo }}</p>
     </div>
 </template>
 
@@ -20,6 +21,12 @@ export default {
             // this.todoArray.splice(ind, 1);
             this.$emit("change", ind);
 
+        }
+    },
+
+    computed: {
+        allTodo() {
+            return this.todoArray.length ? this.todoArray.length : 0;
         }
     },
 }

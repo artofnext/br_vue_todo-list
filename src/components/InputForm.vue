@@ -36,8 +36,16 @@ export default {
             this.todoArray.splice(keyOf, 1);
         }
     },
-    computed: {
-        
+    watch: {
+        todoArray() {
+            window.localStorage.setItem("todo-array", JSON.stringify(this.todoArray));
+        }
+    },
+    mounted() {
+        if(!window.localStorage.getItem("todo-array")) {
+            return;
+        }
+        this.todoArray = JSON.parse(window.localStorage.getItem("todo-array"));
     },
 }
 </script>

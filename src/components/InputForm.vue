@@ -26,6 +26,7 @@ export default {
     methods: {
         addTodo() {
             this.todoArray.push(this.newTodo);
+            this.newTodo = '';
         }
     },
     computed: {

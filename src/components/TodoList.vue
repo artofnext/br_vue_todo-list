@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li v-for="(value, index) in todoArray" :key="index">
-                {{ index + 1 }} - {{ value }}
+                <p>{{ index + 1 }} - {{ value }}<button v-on:click="deleteItem(index)">x</button></p>
             </li>
         </ul>
     </div>
@@ -14,5 +14,12 @@ export default {
     props: {
         todoArray: Array,
     },
+
+    methods: {
+        deleteItem (ind) {
+            this.todoArray.splice(ind, 1);
+        }
+    },
 }
 </script>
+
